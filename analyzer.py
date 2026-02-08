@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from algorithms import bubble_sort, linear_search
+from algorithms import compare_search, compare_sorting
 
 class SalesAnalyzer:
     def __init__(self):
@@ -97,8 +99,23 @@ class SalesAnalyzer:
         self.df["date"] = pd.to_datetime(self.df["date"])
         monthly_revenue = self.df.groupby(self.df["date"].dt.to_period("M"))["amount"].sum()
         return monthly_revenue
+    
+    #  Custom algorithm implementations for sorting and searching
+    def sort_orders_by_amount_custom(self):
+        arr = self.df["amount"].tolist()
+        sorted_arr = bubble_sort(arr)
+        return sorted_arr
 
+    def search_order_custom(self, amount):
+        arr = self.df["amount"].tolist()
+        index = linear_search(arr, amount)
+        return index
 
+    def compare_sorting_performance(self):
+        arr = self.df["amount"].tolist()
+        return compare_sorting(arr)
 
-       
+    def compare_search_performance(self, value):
+        arr = self.df["amount"].tolist()
+        return compare_search(arr, value)
 

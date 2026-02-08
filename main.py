@@ -19,6 +19,19 @@ def main():
     print(analyzer.average_order_size_by_category())
     print("\nCancellation Rate:", analyzer.cancellation_rate(), "\n")
 
+# beispiel für benutzerdefinierte Algorithmen
+    sorted_amounts = analyzer.sort_orders_by_amount_custom()
+    print("Sorted amounts (custom):", sorted_amounts[:10])
+
+    # Suche nach einem bestimmten Bestellbetrag
+    idx = analyzer.search_order_custom(500)
+    print("Index of order with amount 500:", idx)
+
+    print("\nSorting performance (bubble, sorted, numpy):")
+    print(analyzer.compare_sorting_performance())
+
+    print("\nSearch performance (linear, in, numpy):")
+    print(analyzer.compare_search_performance(500))
 
 if __name__ == "__main__":
     main()
