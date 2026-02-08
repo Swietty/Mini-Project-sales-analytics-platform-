@@ -1,0 +1,61 @@
+Projekt: Sales Analytics Platform
+
+1. Projektbeschreibung
+Ziel des Projekts ist die Analyse von Verkaufsdaten, Implementierung eigener Sortier- und Suchalgorithmen und Visualisierung der Ergebnisse. Die Daten stammen aus der Datei "sales_data.csv" mit folgenden Spalten:
+
+order_id, customer_id, order_date, product_category, product_name, quantity, unit_price, order_amount, status
+
+2. Datenaufbereitung
+- Fehlende Werte wurden überprüft und behandelt:
+  - order_date: Zeilen ohne Datum entfernt
+  - customer_id: fehlende Werte mit "unknown" ersetzt
+  - order_amount: fehlende Werte auf 0 gesetzt
+  - product_category: fehlende Werte auf "unknown" gesetzt
+- Spaltennamen standardisiert:
+  - order_date -> date
+  - order_amount -> amount
+  - product_category -> category
+
+3. Geschäftliche Erkenntnisse
+- Gesamter Umsatz: 130.872,44 €
+- Durchschnittlicher Bestellwert (AOV): 654,36 €
+- Anzahl der Kunden: 49
+- Profitabelste Kategorie: Home & Garden
+- Top 10 Kunden nach Lifetime Value:
+  CUST6: 6942,80 €
+  CUST33: 6488,62 €
+  CUST28: 6260,23 €
+  CUST49: 5861,57 €
+  CUST40: 5349,68 €
+  CUST34: 5072,56 €
+  CUST39: 4661,28 €
+  CUST21: 4416,01 €
+  CUST18: 4315,92 €
+  CUST1: 4258,96 €
+- Wiederkehrende Kundenrate: 89,80%
+- Durchschnittlicher Bestellwert nach Kategorie:
+  Books: 644,46 €
+  Clothing: 690,10 €
+  Electronics: 448,61 €
+  Home & Garden: 742,43 €
+  Sports: 723,51 €
+- Stornierungsrate: 14,00%
+
+4. Algorithmische Analyse
+- Eigene Sortieralgorithmus: Bubble Sort (O(n²))
+- Eigene Suchalgorithmus: Linear Search (O(n))
+- Vergleich mit eingebauten Funktionen:
+  - sort(): deutlich schneller als Bubble Sort
+  - np.sort(): ebenfalls schneller
+  - in-Operator vs. np.where(): eingebaute Funktionen meist optimiert
+
+5. Visualisierung
+- **Revenue by Category** (Balkendiagramm) — `figures/revenue_by_category.png`
+- **Monthly Revenue Trend** (Liniendiagramm) — `figures/monthly_revenue_trend.png`
+- **Order Amount Distribution** (Histogramm) — `figures/order_amount_distribution.png`
+
+6. Fazit
+- Die umsatzstärkste Kategorie ist Home & Garden.
+- Die meisten wiederkehrenden Kunden generieren einen großen Teil des Umsatzes.
+- Eigene Algorithmen funktionieren, aber eingebaute Funktionen sind effizienter.
+- Visualisierungen unterstützen die Identifikation von Trends und Ausreißern.
